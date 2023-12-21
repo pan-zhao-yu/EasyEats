@@ -1,4 +1,4 @@
-package com.zhaoyu.reggie.common;
+package com.zhaoyu.easyeats.common;
 
 import lombok.Data;
 import java.util.HashMap;
