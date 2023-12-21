@@ -1,4 +1,4 @@
-package com.zhaoyu.reggie.entity;
+package com.zhaoyu.easyeats.entity;
 
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;

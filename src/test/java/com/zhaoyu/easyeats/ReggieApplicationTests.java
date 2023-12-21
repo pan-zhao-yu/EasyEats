@@ -1,4 +1,4 @@
-package com.zhaoyu.reggie;
+package com.zhaoyu.easyeats;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
