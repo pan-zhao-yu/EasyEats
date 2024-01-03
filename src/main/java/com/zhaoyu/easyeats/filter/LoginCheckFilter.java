@@ -1,6 +1,7 @@
 package com.zhaoyu.easyeats.filter;
 
 import com.alibaba.fastjson.JSON;
+import com.zhaoyu.easyeats.common.BaseContext;
 import com.zhaoyu.easyeats.common.R;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.AntPathMatcher;
@@ -13,7 +14,7 @@ import java.io.IOException;
 
 @WebFilter(filterName = "loginCheckFilter", urlPatterns = "/*")
 @Slf4j
-public class loginCheckFilter implements Filter {
+public class LoginCheckFilter implements Filter {
     public static final AntPathMatcher PATH_MATCHER = new AntPathMatcher();
 
     @Override
@@ -44,6 +45,10 @@ public class loginCheckFilter implements Filter {
 
         if(request.getSession().getAttribute("employee")!= null){
             log.info("user logged in, user id:{}", request.getSession().getAttribute("employee"));
+
+            Long empId = (Long) request.getSession().getAttribute("employee");
+            BaseContext.setCurrentId(empId);
+
             filterChain.doFilter(request, response);
             return;
         }
