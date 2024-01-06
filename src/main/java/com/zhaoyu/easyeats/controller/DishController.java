@@ -3,6 +3,7 @@ package com.zhaoyu.easyeats.controller;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.zhaoyu.easyeats.common.R;
+import com.zhaoyu.easyeats.dto.DishDto;
 import com.zhaoyu.easyeats.service.CategoryService;
 import com.zhaoyu.easyeats.service.DishFlavorService;
 import com.zhaoyu.easyeats.service.DishService;
@@ -30,4 +31,8 @@ public class DishController {
     @Autowired
     private CategoryService categoryService;
 
+    public R<String> save(DishDto dishDto){
+
+        return null;
+    }
 }
