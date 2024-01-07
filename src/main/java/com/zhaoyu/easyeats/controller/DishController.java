@@ -130,4 +130,25 @@ public class DishController {
             return R.error("Error deleting dish:");
         }
     }
+
+
+    /**
+     * search dish data by conditions
+     * @param dish
+     * @return
+     */
+    @GetMapping("/list")
+    public R<List<Dish>> list(Dish dish){
+
+        //searching condition
+        LambdaQueryWrapper<Dish> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(dish.getCategoryId()  != null, Dish::getCategoryId, dish.getCategoryId());
+        //only including available dishes
+        queryWrapper.eq(Dish::getStatus,1);
+        //ordering condition
+        queryWrapper.orderByAsc(Dish::getSort).orderByDesc(Dish::getUpdateTime);
+
+        List<Dish> list = dishService.list(queryWrapper);
+        return R.success(list);
+    }
 }
