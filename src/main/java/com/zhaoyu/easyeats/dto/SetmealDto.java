@@ -9,7 +9,7 @@ import java.util.List;
 @Data
 public class SetmealDto extends Setmeal {
 
-    private List<SetmealDto> setmealDishes;
+    private List<SetmealDish> setmealDishes;
 
     private String categoryName;
 }
