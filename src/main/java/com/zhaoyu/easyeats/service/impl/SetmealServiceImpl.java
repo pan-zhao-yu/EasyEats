@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
@@ -25,6 +26,9 @@ public class SetmealServiceImpl extends ServiceImpl<SetmealMapper,Setmeal> imple
     @Autowired
     private SetmealDishService setmealDishService;
 
+
+    @Autowired
+    private SetmealMapper setmealMapper;
 
 
     /**
@@ -77,12 +81,28 @@ public class SetmealServiceImpl extends ServiceImpl<SetmealMapper,Setmeal> imple
         setmealDishService.remove(lambdaQueryWrapper);
     }
 
+    @Override
+    @Transactional
+    public void updateSetmealStatus(List<Long> ids, Integer status) {
+        LambdaUpdateWrapper<Setmeal> updateWrapper = new LambdaUpdateWrapper<>();
+        updateWrapper.in(Setmeal::getId, ids).set(Setmeal::getStatus, status);
+        setmealMapper.update(null, updateWrapper);
+    }
+
 //    @Override
-//    @Transactional
-//    public void updateSetmealStatus(Integer status, List<Long> ids) {
-//        LambdaUpdateWrapper<Setmeal> updateWrapper = new LambdaUpdateWrapper<>();
-//        updateWrapper.in(Setmeal::getId, ids).set(Setmeal::getStatus, status);
-//        setmealMapper.update(null, updateWrapper);
+//    public SetmealDto getSetmealById(Long id) {
+//        Setmeal setmeal = setmealMapper.selectById(id);
+//        if(setmeal == null){
+//            throw new RuntimeException("Setmeal not found");
+//        }
+//        SetmealDto setmealDto = convertToDto(setmeal);
+//        return setmealDto;
+//    }
+//
+//    private SetmealDto convertToDto(Setmeal setmeal) {
+//        // Method to convert Setmeal entity to SetmealDto
+//        // Implement the conversion logic here
+//        return null;
 //    }
 
 

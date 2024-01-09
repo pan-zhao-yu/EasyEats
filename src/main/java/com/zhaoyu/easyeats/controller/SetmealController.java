@@ -97,20 +97,43 @@ public class SetmealController {
     }
 
 
+    /**
+     * delete the setmeal if it is currently marked not available
+     * @param ids
+     * @return
+     */
     @DeleteMapping
     public R<String> delete(@RequestParam List<Long> ids){
         log.info("ids {}", ids);
         setmealService.removeWithDish(ids);
         return R.success("setmeal date delete successfully");
     }
+
+    /**
+     * update setmeal status
+     * @param status
+     * @param ids
+     * @return
+     */
+    @PostMapping("/status/{status}")
+    public R<String> update(@PathVariable Integer status, @RequestParam List<Long> ids){
+        try {
+            setmealService.updateSetmealStatus(ids, status);
+            return R.success("setmeal status update successfully");
+        } catch (Exception e) {
+            return R.error("Error updating setmeal status");
+        }
+    }
+
 //
-//    @PostMapping
-//    public R<String> update(@PathVariable Integer status, @RequestParam List<Long> ids){
+//    //update setmeal information
+//    @GetMapping("/{id}")
+//    public R<SetmealDto> getSetmeal(@PathVariable Long id){
 //        try {
-//            setmealService.updateSetmealStatus(status, ids);
-//            return R.success("setmeal status update successfully");
+//            SetmealDto setmealDto = setmealService.getSetmealById(id);
+//            return R.success(setmealDto);
 //        } catch (Exception e) {
-//            return R.error("Error updating setmeal status");
+//            return R.error("Error retrieving setmeal information");
 //        }
 //    }
 
