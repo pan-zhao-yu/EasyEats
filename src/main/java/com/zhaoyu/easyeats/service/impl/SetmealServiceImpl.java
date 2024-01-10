@@ -17,7 +17,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
@@ -116,6 +115,26 @@ public class SetmealServiceImpl extends ServiceImpl<SetmealMapper,Setmeal> imple
         return setmealDto;
     }
 
+    @Override
+    @Transactional
+    public void updateSetmeal(SetmealDto setmealDto) {
+// Update setmeal table basic information
+        this.updateById(setmealDto);
+
+        // Clear current setmeal dishes data - delete from setmeal_dish table
+        LambdaQueryWrapper<SetmealDish> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(SetmealDish::getSetmealId, setmealDto.getId());
+        setmealDishService.remove(queryWrapper);
+
+        // Add the submitted setmeal dishes data - insert into setmeal_dish table
+        List<SetmealDish> setmealDishes = setmealDto.getSetmealDishes();
+        setmealDishes = setmealDishes.stream().map(item -> {
+            item.setSetmealId(setmealDto.getId());
+            return item;
+        }).collect(Collectors.toList());
+
+        setmealDishService.saveBatch(setmealDishes);
+    }
 
 
 }

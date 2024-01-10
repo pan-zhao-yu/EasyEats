@@ -137,4 +137,10 @@ public class SetmealController {
         }
     }
 
+    @PutMapping
+    public R<String> updateSetmeal(@RequestBody SetmealDto setmealDto){
+        setmealService.updateSetmeal(setmealDto);
+        return R.success("setmeal update successfully");
+    }
+
 }
