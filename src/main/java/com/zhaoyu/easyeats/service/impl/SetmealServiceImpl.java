@@ -11,6 +11,7 @@ import com.zhaoyu.easyeats.mapper.SetmealMapper;
 import com.zhaoyu.easyeats.service.SetmealDishService;
 import com.zhaoyu.easyeats.service.SetmealService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -89,21 +90,32 @@ public class SetmealServiceImpl extends ServiceImpl<SetmealMapper,Setmeal> imple
         setmealMapper.update(null, updateWrapper);
     }
 
-//    @Override
-//    public SetmealDto getSetmealById(Long id) {
-//        Setmeal setmeal = setmealMapper.selectById(id);
-//        if(setmeal == null){
-//            throw new RuntimeException("Setmeal not found");
+    @Override
+    public SetmealDto getSetmealById(Long id) {
+        Setmeal setmeal = setmealMapper.selectById(id);
+        if(setmeal == null){
+            throw new RuntimeException("Setmeal not found");
+        }
+
+// Convert to SetmealDto
+        SetmealDto setmealDto = new SetmealDto();
+        BeanUtils.copyProperties(setmeal, setmealDto);
+
+        // Fetch the related SetmealDish information
+        LambdaQueryWrapper<SetmealDish> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(SetmealDish::getSetmealId, setmeal.getId());
+        List<SetmealDish> setmealDishes = setmealDishService.list(queryWrapper);
+        setmealDto.setSetmealDishes(setmealDishes);
+
+//        // Optionally, fetch the category name if required
+//        Category category = categoryService.getById(setmeal.getCategoryId());
+//        if (category != null) {
+//            setmealDto.setCategoryName(category.getName());
 //        }
-//        SetmealDto setmealDto = convertToDto(setmeal);
-//        return setmealDto;
-//    }
-//
-//    private SetmealDto convertToDto(Setmeal setmeal) {
-//        // Method to convert Setmeal entity to SetmealDto
-//        // Implement the conversion logic here
-//        return null;
-//    }
+
+        return setmealDto;
+    }
+
 
 
 }

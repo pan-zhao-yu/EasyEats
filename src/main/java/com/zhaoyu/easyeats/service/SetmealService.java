@@ -15,5 +15,5 @@ public interface SetmealService extends IService<Setmeal> {
 
     public void updateSetmealStatus(List<Long> ids, Integer status);
 
-//    public SetmealDto getSetmealById(Long id);
+    public SetmealDto getSetmealById(Long id);
 }

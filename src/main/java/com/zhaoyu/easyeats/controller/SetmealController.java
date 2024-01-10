@@ -125,16 +125,16 @@ public class SetmealController {
         }
     }
 
-//
-//    //update setmeal information
-//    @GetMapping("/{id}")
-//    public R<SetmealDto> getSetmeal(@PathVariable Long id){
-//        try {
-//            SetmealDto setmealDto = setmealService.getSetmealById(id);
-//            return R.success(setmealDto);
-//        } catch (Exception e) {
-//            return R.error("Error retrieving setmeal information");
-//        }
-//    }
+
+    //update setmeal information
+    @GetMapping("/{id}")
+    public R<SetmealDto> getSetmeal(@PathVariable Long id){
+        try {
+            SetmealDto setmealDto = setmealService.getSetmealById(id);
+            return R.success(setmealDto);
+        } catch (Exception e) {
+            return R.error("Error retrieving setmeal information");
+        }
+    }
 
 }
