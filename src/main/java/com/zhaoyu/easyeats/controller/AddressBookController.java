@@ -112,9 +112,21 @@ public class AddressBookController {
         return R.success("address update successfully");
     }
 
-//    @DeleteMapping("/ids")
-//    public R<String> deleteAddressees(@RequestParam List<Long> ids){
-//        addressBookService.removeByIds(ids);
-//        return R.success("delete successful");
-//    }
+    /**
+     * 根据地址id删除用户地址
+     * @param id
+     * @return
+     */
+    @DeleteMapping
+    public R<String> delete(@RequestParam("ids") Long id){
+
+        if (id == null){
+            return R.error("请求异常");
+        }
+        LambdaQueryWrapper<AddressBook> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(AddressBook::getId,id).eq(AddressBook::getUserId,BaseContext.getCurrentId());
+        addressBookService.remove(queryWrapper);
+        //addressBookService.removeById(id);  感觉直接使用这个removeById不太严谨.....
+        return R.success("删除地址成功");
+    }
 }
