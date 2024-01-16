@@ -78,11 +78,12 @@ public class AddressBookController {
         AddressBook addressBook = addressBookService.getOne(queryWrapper);
 
         if (null == addressBook) {
-            return R.error("没有找到该对象");
+            return R.error("No user address found");
         } else {
             return R.success(addressBook);
         }
     }
+
 
     /**
      * 查询指定用户的全部地址
