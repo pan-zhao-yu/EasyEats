@@ -25,7 +25,7 @@
                 <el-input placeholder=" Please enter your phone number" v-model="form.phone"  maxlength='20'/></el-input>
                 <div class="divSplit"></div>
                 <el-input placeholder=" Please enter authority number" v-model="form.code"  maxlength='20'/></el-input>
-                <span @click='getCode'>Get your authority number</span>
+                <span @click='getCode'>Get code</span>
             </div>
             <div class="divMsg" v-if="msgFlag">Incorrect phone number, please enter again</div>
             <el-button type="primary" :class="{btnSubmit:1===1,btnNoPhone:!form.phone,btnPhone:form.phone}" @click="btnLogin">Log in</el-button>
