@@ -225,7 +225,7 @@
             </el-form-item>
           </div>
           <div>
-            <el-form-item label="套餐图片:" class="uploadImg">
+            <el-form-item label="Combo picture:" class="uploadImg">
               <el-upload
                 class="avatar-uploader"
                 action="/common/upload"
@@ -240,21 +240,21 @@
             </el-form-item>
           </div>
           <div class="address">
-            <el-form-item label="套餐描述:">
-              <el-input v-model="ruleForm.description" type="textarea" :rows="3" placeholder="套餐描述，最长200字" maxlength="200"/>
+            <el-form-item label="Description:">
+              <el-input v-model="ruleForm.description" type="textarea" :rows="3" placeholder="Combo discription, max 200 words" maxlength="200"/>
             </el-form-item>
           </div>
           <div class="subBox address">
             <el-form-item>
-              <el-button @click="goBack()"> 取消 </el-button>
-              <el-button type="primary" @click="submitForm('ruleForm', false)"> 保存 </el-button>
+              <el-button @click="goBack()"> Cancel </el-button>
+              <el-button type="primary" @click="submitForm('ruleForm', false)"> Save </el-button>
               <el-button
                 v-if="actionType == 'add'"
                 type="primary"
                 class="continue"
                 @click="submitForm('ruleForm', true)"
               >
-                保存并继续添加套餐
+                Save and continue add
               </el-button>
             </el-form-item>
           </div>
