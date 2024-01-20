@@ -50,7 +50,7 @@ public class UserController {
             //session.setAttribute(phone,code);
 
             //Use redis to store Auth code for 5mis
-            redisTemplate.opsForValue().set(phone,code,5, TimeUnit.MINUTES);
+            redisTemplate.opsForValue().set(phone,code,1, TimeUnit.MINUTES);
 
             return R.success("Code send successfully");
         }
