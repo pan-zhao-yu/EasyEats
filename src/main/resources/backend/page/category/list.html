@@ -22,13 +22,13 @@
           class="continue"
           @click="addClass('class')"
         >
-          + 新增菜品分类
+          + Create dish category
         </el-button>
         <el-button
           type="primary"
           @click="addClass('meal')"
         >
-          + 新增套餐分类
+          + Create combo category
         </el-button>
       </div>
       <el-table
@@ -38,19 +38,19 @@
       >
         <el-table-column
           prop="name"
-          label="分类名称"
+          label="category name"
         /></el-table-column>
         <el-table-column
           prop="type"
-          label="分类类型"
+          label="category type"
         >
           <template slot-scope="scope">
-            <span>{{ scope.row.type == '1' ? '菜品分类': '套餐分类' }}</span>
+            <span>{{ scope.row.type == '1' ? 'dish category': 'combo category' }}</span>
           </template>
         </el-table-column>
         <el-table-column
           prop="updateTime"
-          label="操作时间"
+          label="Last edit time"
         >
         <template slot-scope="scope">
          {{scope.row.updateTime}}
@@ -58,10 +58,10 @@
         </el-table-column>
         <el-table-column
           prop="sort"
-          label="排序"
+          label="sort"
         /></el-table-column>
         <el-table-column
-          label="操作"
+          label="Operation"
           width="160"
           align="center"
         >
@@ -72,7 +72,7 @@
               class="blueBug"
               @click="editHandle(scope.row)"
             >
-              修改
+              Edit
             </el-button>
             <el-button
               type="text"
@@ -80,7 +80,7 @@
               class="delBut non"
               @click="deleteHandle(scope.row.id)"
             >
-              删除
+              Delete
             </el-button>
           </template>
         </el-table-column>
@@ -105,15 +105,15 @@
         class="demo-form-inline"
         label-width="100px"
       >
-        <el-form-item label="分类名称：">
+        <el-form-item label="Category name：">
           <el-input
             v-model="classData.name"
-            placeholder="请输入分类名称"
+            placeholder="Enter category name"
             maxlength="14"
           />
         </el-form-item>
-        <el-form-item label="排序：">
-          <el-input v-model="classData.sort"  type="number" placeholder="请输入排序" />
+        <el-form-item label="Sort lable：">
+          <el-input v-model="classData.sort"  type="number" placeholder="Enter sort lable" />
         </el-form-item>
       </el-form>
       <span
@@ -123,19 +123,19 @@
         <el-button
           size="medium"
           @click="classData.dialogVisible = false"
-        >取 消</el-button>
+        >Cancel</el-button>
         <el-button
           type="primary"
           size="medium"
           @click="submitForm()"
-        >确 定</el-button>
+        >Comfirm</el-button>
         <el-button
           v-if="action != 'edit'"
           type="primary"
           size="medium"
           class="continue"
           @click="submitForm('go')"
-        > 保存并继续添加 </el-button>
+        > Save & continue add </el-button>
       </span>
     </el-dialog>
   </div>
@@ -159,7 +159,7 @@
             tableData: [],
             type :'',
             classData: {
-              'title': '添加菜品分类',
+              'title': 'Add dish category',
               'dialogVisible': false,
               'categoryId': '',
               'name': '',
@@ -193,10 +193,10 @@
            // 添加
           addClass(st) {
             if (st == 'class') {
-              this.classData.title = '新增菜品分类'
+              this.classData.title = 'Create dish category'
               this.type = '1'
             } else {
-              this.classData.title = '新增套餐分类'
+              this.classData.title = 'Create combo category'
               this.type = '2'
             }
             this.action = 'add'
@@ -205,7 +205,7 @@
             this.classData.dialogVisible = true
           },
           editHandle(dat) {
-            this.classData.title = '修改分类'
+            this.classData.title = 'Edit category'
             this.action = 'edit'
             this.classData.name = dat.name
             this.classData.sort = dat.sort
@@ -219,8 +219,8 @@
           //删除
           deleteHandle(id) {
             this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
-              'confirmButtonText': '确定',
-              'cancelButtonText': '取消',
+              'confirmButtonText': 'Confirm',
+              'cancelButtonText': 'Cancel',
               'type': 'warning'
             }).then(() => {
               deleCategory(id).then(res => {
