@@ -16,7 +16,7 @@
       <div class="tableBar">
         <el-input
           v-model="input"
-          placeholder="请输入套餐名称"
+          placeholder="Enter combo name to search"
           style="width: 250px"
           clearable
           @keyup.enter.native="handleQuery"
@@ -29,18 +29,18 @@
           ></i>
         </el-input>
         <div class="tableLab">
-          <span class="span-btn delBut non" @click="deleteHandle('批量')">批量删除</span>
-          <span class="span-btn blueBug non" @click="statusHandle('1')">批量启售</span>
+          <span class="span-btn delBut non" @click="deleteHandle('Batch')">Batch deletion</span>
+          <span class="span-btn blueBug non" @click="statusHandle('1')">Batch available </span>
           <span
             style="border:none;"
             class="span-btn delBut non"
             @click="statusHandle('0')"
-          >批量停售</span>
+          >Batch unavailable</span>
           <el-button
             type="primary"
             @click="addSetMeal('add')"
           >
-            + 新建套餐
+            + Create Combo
           </el-button>
         </div>
       </div>
@@ -56,9 +56,9 @@
         ></el-table-column>
         <el-table-column
           prop="name"
-          label="套餐名称"
+          label="Combo name"
         ></el-table-column>
-        <el-table-column prop="image" label="图片"  align="center">
+        <el-table-column prop="image" label="picture"  align="center">
           <template slot-scope="{ row }">
             <el-image style="width: auto; height: 40px; border:none;cursor: pointer;" :src="getImage(row.image)" :preview-src-list="[ `/common/download?name=${row.image}` ]" >
               <div slot="error" class="image-slot">
@@ -69,28 +69,28 @@
         </el-table-column>
         <el-table-column
           prop="categoryName"
-          label="套餐分类"
+          label="Combo category"
         ></el-table-column>
         <el-table-column
           prop="price"
-          label="套餐价"
+          label="Combo price"
         >
           <template slot-scope="scope">
             <span>￥{{ scope.row.price/100 }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="售卖状态">
+        <el-table-column label="Status">
           <template slot-scope="scope">
-            <span>{{ scope.row.status == '0' ? '停售' : '启售' }}</span>
+            <span>{{ scope.row.status == '0' ? 'Unavailable' : 'Available' }}</span>
           </template>
         </el-table-column>
         <el-table-column
           prop="updateTime"
-          label="最后操作时间"
+          label="Last modify time"
         >
         </el-table-column>
         <el-table-column
-          label="操作"
+          label="Operation"
           width="160"
           align="center"
         >
@@ -101,7 +101,7 @@
               class="blueBug"
               @click="addSetMeal(scope.row.id)"
             >
-              修改
+              Edit
             </el-button>
             <el-button
               type="text"
@@ -117,7 +117,7 @@
               class="delBut non"
               @click="deleteHandle('单删', scope.row.id)"
             >
-              删除
+              Delete
             </el-button>
           </template>
         </el-table-column>
@@ -191,20 +191,20 @@
               window.parent.menuHandle({
                 id: '5',
                 url: '/backend/page/combo/add.html',
-                name: '添加套餐'
+                name: 'Create combo'
               },true)
             } else {
               window.parent.menuHandle({
                 id: '5',
                 url: '/backend/page/combo/add.html?id='+st,
-                name: '修改套餐'
+                name: 'Edit combo'
               },true)
             }
           },
 
           // 删除
           deleteHandle (type, id) {
-            if (type === '批量' && id === null) {
+            if (type === 'Batch' && id === null) {
               if (this.checkList.length === 0) {
                 return this.$message.error('请选择删除对象')
               }
