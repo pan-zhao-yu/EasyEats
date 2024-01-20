@@ -45,6 +45,8 @@ public class DishController {
     public R<String> save(@RequestBody DishDto dishDto){
         log.info(dishDto.toString());
 
+
+
         dishService.saveWithFlavor(dishDto);
         return R.success("new dish created successfully");
     }
