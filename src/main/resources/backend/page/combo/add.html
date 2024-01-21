@@ -212,7 +212,7 @@
                             ></el-input-number>
                           </template>
                         </el-table-column>
-                        <el-table-column prop="address" label="操作" width="180px;" align="center">
+                        <el-table-column prop="address" label="Operation" width="180px;" align="center">
                           <template slot-scope="scope">
                             <el-button type="text" size="small" @click="delDishHandle(scope.$index)"> Delete </el-button>
                           </template>
@@ -261,7 +261,7 @@
         </el-form>
       </div>
       <el-dialog
-        title="添加菜品"
+        title="Add dish"
         class="addDishList"
         :visible.sync="dialogVisible"
         width="60%"
@@ -270,7 +270,7 @@
         <el-input
           v-model="value"
           class="seachDish"
-          placeholder="请输入菜品名称进行搜索"
+          placeholder="Enter dish name to search"
           style="width: 250px"
           size="small"
           clearable
@@ -313,7 +313,7 @@
                     >
                       <div class="item">
                         <span style="flex: 3;text-align: left">{{ item.dishName }}</span>
-                        <span>{{ item.status == 0 ? '停售' : '在售' }}</span>
+                        <span>{{ item.status == 0 ? 'Unavailable' : 'Available' }}</span>
                         <span>{{ Number(item.price)/100 }}</span>
                       </div>
                     </el-checkbox>
@@ -324,7 +324,7 @@
           </div>
           <div class="ritCont">
             <div class="tit">
-              已选菜品({{ checkedList.length }})
+              Selected dish({{ checkedList.length }})
             </div>
             <div class="items">
               <div
@@ -349,8 +349,8 @@
         </div>
         
         <span slot="footer" class="dialog-footer">
-          <el-button @click="handleClose">取 消</el-button>
-          <el-button type="primary" @click="addTableList">确 定</el-button>
+          <el-button @click="handleClose">Cancel</el-button>
+          <el-button type="primary" @click="addTableList">Confirm</el-button>
         </span>
       </el-dialog>
     </div>
@@ -405,12 +405,12 @@
             return {
               name: {
                 required: true,
-                message: '请输入套餐名称',
+                message: 'Enter combo name',
                 trigger: 'blur',
               },
               idType: {
                 required: true,
-                message: '请选择套餐分类',
+                message: 'Enter combo category',
                 trigger: 'change',
               },
               price: {
@@ -418,7 +418,7 @@
                 // 'message': '请输入套餐价格',
                 validator: (rules, value, callback) => {
                     if (!value) {
-                      callback(new Error('请填写菜品价格'))
+                      callback(new Error('Enter dish price'))
                     } else {
                       const reg = /^\d+(\.\d{0,2})?$/
                       if (reg.test(value)) {
