@@ -22,7 +22,7 @@
       <div class="tableBar">
         <el-input
           v-model="input"
-          placeholder="请输入员工姓名"
+          placeholder="Enter employee name"
           style="width: 250px"
           clearable
            @keyup.enter.native="handleQuery"
@@ -38,7 +38,7 @@
           type="primary"
           @click="addMemberHandle('add')"
         >
-          + 添加员工
+          + Create employee
         </el-button>
       </div>
       <el-table
@@ -48,23 +48,23 @@
       >
         <el-table-column
           prop="name"
-          label="员工姓名"
+          label="Emp name"
         ></el-table-column>
         <el-table-column
           prop="username"
-          label="账号"
+          label="Account"
         ></el-table-column>
         <el-table-column
           prop="phone"
-          label="手机号"
+          label="Phone"
         ></el-table-column>
-        <el-table-column label="账号状态">
+        <el-table-column label="Status">
           <template slot-scope="scope">
-            {{ String(scope.row.status) === '0' ? '已禁用' : '正常' }}
+            {{ String(scope.row.status) === '0' ? 'Banned' : 'Normal' }}
           </template>
         </el-table-column>
         <el-table-column
-          label="操作"
+          label="Operation"
           width="160"
           align="center"
         >
@@ -76,7 +76,7 @@
               @click="addMemberHandle(scope.row.id)"
               :class="{notAdmin:user !== 'admin'}"
             >
-              编辑
+              Edit
             </el-button>
             <el-button
               type="text"
@@ -85,7 +85,7 @@
               @click="statusHandle(scope.row)"
               v-if="user === 'admin'"
             >
-              {{ scope.row.status == '1' ? '禁用' : '启用' }}
+              {{ scope.row.status == '1' ? 'Banned' : 'Available' }}
             </el-button>
           </template>
         </el-table-column>
@@ -157,13 +157,13 @@
               window.parent.menuHandle({
                 id: '2',
                 url: '/backend/page/member/add.html',
-                name: '添加员工'
+                name: 'Create employee'
               },true)
             } else {
               window.parent.menuHandle({
                 id: '2',
                 url: '/backend/page/member/add.html?id='+st,
-                name: '修改员工'
+                name: 'Edit employee'
               },true)
             }
           },
