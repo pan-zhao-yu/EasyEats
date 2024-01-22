@@ -13,10 +13,10 @@ spring:
       password: "password"
 
   redis:
-    host: 192.168.81.133
-    port: 6379
+    host: 
+    port:
     password:
-    database: 0
+    database:
   cache:
     redis:
       time-to-live: 1800000 #30 mins
