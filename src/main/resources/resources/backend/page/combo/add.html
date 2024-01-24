@@ -174,27 +174,27 @@
           class="demo-ruleForm"
         >
           <div>
-            <el-form-item label="套餐名称:" prop="name" >
+            <el-form-item label="Combo name:" prop="name" >
               <el-input v-model="ruleForm.name" placeholder="请填写套餐名称" maxlength="20"/>
             </el-form-item>
-            <el-form-item label="套餐分类:" prop="idType">
+            <el-form-item label="Combo category:" prop="idType">
               <el-select v-model="ruleForm.idType" placeholder="请选择套餐分类" @change="$forceUpdate()">
                 <el-option v-for="(item, index) in setMealList" :key="index" :label="item.name" :value="item.id" />
               </el-select>
             </el-form-item>
           </div>
           <div>
-            <el-form-item label="套餐价格:" prop="price">
+            <el-form-item label="Combo price:" prop="price">
               <el-input v-model="ruleForm.price" placeholder="请设置套餐价格" />
             </el-form-item>
           </div>
           <div>
-            <el-form-item label="套餐菜品:" class="setmealFood">
+            <el-form-item label="Combo dish:" class="setmealFood">
               <el-form-item>
                 <div class="addDish">
-                  <span v-if="dishTable.length == 0" class="addBut" @click="openAddDish"> + 添加菜品</span>
+                  <span v-if="dishTable.length == 0" class="addBut" @click="openAddDish"> + Add dish</span>
                   <div v-if="dishTable.length != 0" class="content">
-                    <div class="addBut" style="margin-bottom: 20px" @click="openAddDish">+ 添加菜品</div>
+                    <div class="addBut" style="margin-bottom: 20px" @click="openAddDish">+ Add dish</div>
                     <div class="table">
                       <el-table :data="dishTable" style="width: 100%">
                         <el-table-column prop="name" label="名称" width="180" align="center"></el-table-column>
