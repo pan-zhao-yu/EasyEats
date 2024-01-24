@@ -6,6 +6,8 @@
 - MySql
 - Mybatis Plus
 - Redis
+- Nginx
+- Docker
 
 ## Project Modules
 
@@ -25,3 +27,4 @@
 3. Address Module
 4. Order Module
 5. Dish Module
+
