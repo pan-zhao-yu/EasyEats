@@ -22,13 +22,13 @@
           class="continue"
           @click="addClass('class')"
         >
-          + Create dish category
+          + Create Dish Category
         </el-button>
         <el-button
           type="primary"
           @click="addClass('meal')"
         >
-          + Create combo category
+          + Create Combo Category
         </el-button>
       </div>
       <el-table
@@ -38,14 +38,14 @@
       >
         <el-table-column
           prop="name"
-          label="category name"
+          label="Category Name"
         /></el-table-column>
         <el-table-column
           prop="type"
-          label="category type"
+          label="Category Type"
         >
           <template slot-scope="scope">
-            <span>{{ scope.row.type == '1' ? 'dish category': 'combo category' }}</span>
+            <span>{{ scope.row.type == '1' ? 'Dish Category': 'Combo Category' }}</span>
           </template>
         </el-table-column>
         <el-table-column
@@ -105,15 +105,15 @@
         class="demo-form-inline"
         label-width="100px"
       >
-        <el-form-item label="Category name：">
+        <el-form-item label="Name：">
           <el-input
             v-model="classData.name"
             placeholder="Enter category name"
             maxlength="14"
           />
         </el-form-item>
-        <el-form-item label="Sort lable：">
-          <el-input v-model="classData.sort"  type="number" placeholder="Enter sort lable" />
+        <el-form-item label="Sort label：">
+          <el-input v-model="classData.sort"  type="number" placeholder="Enter sort label" />
         </el-form-item>
       </el-form>
       <span
