@@ -11,7 +11,7 @@
 
 ## Project Modules
 
-### 🔺 Back-End
+### 🔺 Management-End
 
 1. Login Module
 2. Employee Management
@@ -20,7 +20,7 @@
 5. Set Meal Management
 6. Order Management
 
-### 🔻 Front-End
+### 🔻 User-End
 
 1. User Module
 2. Shopping Cart Module
