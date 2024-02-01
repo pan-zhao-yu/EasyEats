@@ -30,6 +30,7 @@
 
 ## Database
 the setmeal_dish table maintains the relationship between sets of dishes and individual dishes, the dish_flavor table maintains the relationship between individual dishes and their flavors, the order_detail table maintains the relationship between orders and the items included in each order, and the order table records information about each order placed.
+
 <img width="683" alt="Screenshot 2024-02-02 at 01 01 07" src="https://github.com/pan-zhao-yu/EasyEats/assets/59043772/9a84439e-6728-4911-9007-6f43d4c5f724">
 
 
