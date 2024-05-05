@@ -35,3 +35,6 @@ the setmeal_dish table maintains the relationship between sets of dishes and ind
 
 
 <img width="399" alt="Screenshot 2024-01-24 at 21 41 27" src="https://github.com/pan-zhao-yu/EasyEats/assets/59043772/f5b99816-fe1c-4f6b-838c-4c6b3c75db48">
+
+## 🔷Login Page
+![Screenshot 2024-05-06 at 01 06 42](https://github.com/pan-zhao-yu/EasyEats/assets/59043772/2ae39360-d469-41af-94dd-62f3288b3a0b)
