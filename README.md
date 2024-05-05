@@ -39,7 +39,7 @@ the setmeal_dish table maintains the relationship between sets of dishes and ind
 ## 🔷Login Page
 <img width="1071" alt="Screenshot 2024-05-06 at 01 28 43" src="https://github.com/pan-zhao-yu/EasyEats/assets/59043772/2e984e47-bb96-4caa-bce1-495622177442">
 
-## Employee Management Page
+## Employee Page
 ![Screenshot 2024-05-06 at 01 10 26](https://github.com/pan-zhao-yu/EasyEats/assets/59043772/f027e672-ac30-44a2-8e35-f1b9b19ff2be)
 
 ## 🔷Create & Edit Employee Page
@@ -48,3 +48,10 @@ the setmeal_dish table maintains the relationship between sets of dishes and ind
 
 ## 🔷Category Page
 <img width="1394" alt="Screenshot 2024-05-06 at 01 25 54" src="https://github.com/pan-zhao-yu/EasyEats/assets/59043772/312cee86-c774-4b31-b9e7-312a832b1ea6">
+<img width="1403" alt="Screenshot 2024-05-06 at 01 34 15" src="https://github.com/pan-zhao-yu/EasyEats/assets/59043772/468bbcbc-e3a3-45a5-b355-68a0e0a80934">
+<img width="1401" alt="Screenshot 2024-05-06 at 01 34 52" src="https://github.com/pan-zhao-yu/EasyEats/assets/59043772/19e37d15-4a4a-4ed6-8887-125f6c1cbc18">
+
+## 🔷Dish Page
+<img width="1405" alt="Screenshot 2024-05-06 at 01 42 55" src="https://github.com/pan-zhao-yu/EasyEats/assets/59043772/e33cbd57-2a0d-4a78-b376-eff81f0a287e">
+
+<img width="1401" alt="Screenshot 2024-05-06 at 01 34 52" src="https://github.com/pan-zhao-yu/EasyEats/assets/59043772/ed92b43e-5957-4e24-bd1b-c1c9a9a96746">
