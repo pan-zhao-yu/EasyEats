@@ -44,7 +44,7 @@ spring:
       password: "password"
 
   redis:
-    host: 192.168.81.137
+    host: 192.168.81.140
     port: 6379
     password:
     database: 0
